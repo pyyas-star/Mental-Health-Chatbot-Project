@@ -93,5 +93,3 @@ export default defineConfig([
       // Allow unused variables that start with uppercase (constants, components)
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
-  },
-]);

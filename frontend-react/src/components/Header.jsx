@@ -62,21 +62,3 @@ function Header() {
 }
 
 export default Header;
-
-        </nav>
-    );
-}
-
-export default Header;
-
-        </nav>
-    );
-}
-
-export default Header;
-
-        </nav>
-    );
-}
-
-export default Header;

@@ -40,16 +40,3 @@ class ProtectedView(APIView):
             'status': 'Request was permitted'
         }
         return Response(response)
-
-class ProtectedView(APIView):
-    """
-    Protected route test endpoint.
-    
-    Used to verify JWT authentication is working correctly.
-    Only accessible to authenticated users.
-    """
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        """Return success status if user is authenticated."""
-        return Response({'status': 'Request was permitted'})

@@ -13,30 +13,3 @@ class AccountsConfig(AppConfig):
     """
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'accounts'
-
-class AccountsConfig(AppConfig):
-    """
-    Configuration for the Accounts application.
-    
-    Handles user registration, authentication, and JWT token management.
-    """
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'accounts'
-
-class AccountsConfig(AppConfig):
-    """
-    Configuration for the Accounts application.
-    
-    Handles user registration, authentication, and JWT token management.
-    """
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'accounts'
-
-class AccountsConfig(AppConfig):
-    """
-    Configuration for the Accounts application.
-    
-    Handles user registration, authentication, and JWT token management.
-    """
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'accounts'

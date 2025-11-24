@@ -10,94 +10,19 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(), // Enables React Fast Refresh and JSX support
-  ],
-  
-  // Development server configuration
+  plugins: [react()],
+  // Server configuration for development
   server: {
-    port: 5173, // Default Vite dev server port
-    open: false, // Don't auto-open browser
-    cors: true, // Enable CORS for API requests
+    port: 5174, // Ensure this matches your development port
+    open: true, // Open browser automatically
+    cors: true, // Enable CORS for development
   },
-  
-  // Build configuration
+  // Build configuration for production
   build: {
     outDir: 'dist', // Output directory for production build
-    sourcemap: true, // Generate source maps for debugging
+    sourcemap: false, // Disable sourcemaps for production
     minify: 'esbuild', // Use esbuild for faster minification
   },
-});
-
-
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-export default defineConfig({
-  plugins: [
-    react(), // Enables React Fast Refresh and JSX support
-  ],
-  
-  // Development server configuration
-  server: {
-    port: 5173, // Default Vite dev server port
-    open: false, // Don't auto-open browser
-    cors: true, // Enable CORS for API requests
-  },
-  
-  // Build configuration
-  build: {
-    outDir: 'dist', // Output directory for production build
-    sourcemap: true, // Generate source maps for debugging
-    minify: 'esbuild', // Use esbuild for faster minification
-  },
-});
-
-
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-export default defineConfig({
-  plugins: [
-    react(), // Enables React Fast Refresh and JSX support
-  ],
-  
-  // Development server configuration
-  server: {
-    port: 5173, // Default Vite dev server port
-    open: false, // Don't auto-open browser
-    cors: true, // Enable CORS for API requests
-  },
-  
-  // Build configuration
-  build: {
-    outDir: 'dist', // Output directory for production build
-    sourcemap: true, // Generate source maps for debugging
-    minify: 'esbuild', // Use esbuild for faster minification
-  },
-});
-
-
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-export default defineConfig({
-  plugins: [
-    react(), // Enables React Fast Refresh and JSX support
-  ],
-  
-  // Development server configuration
-  server: {
-    port: 5173, // Default Vite dev server port
-    open: false, // Don't auto-open browser
-    cors: true, // Enable CORS for API requests
-  },
-  
-  // Build configuration
-  build: {
-    outDir: 'dist', // Output directory for production build
-    sourcemap: true, // Generate source maps for debugging
-    minify: 'esbuild', // Use esbuild for faster minification
-  },
-});
+})

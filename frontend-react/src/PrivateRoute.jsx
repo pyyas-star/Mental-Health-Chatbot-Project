@@ -16,15 +16,3 @@ function PrivateRoute({ children }) {
 }
 
 export default PrivateRoute;
-    return isLoggedIn ? children : <Navigate to='/login' />;
-}
-
-export default PrivateRoute;
-    return isLoggedIn ? children : <Navigate to='/login' />;
-}
-
-export default PrivateRoute;
-    return isLoggedIn ? children : <Navigate to='/login' />;
-}
-
-export default PrivateRoute;

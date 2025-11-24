@@ -299,11 +299,3 @@ Thumbs.db
 # Model cache (large files)
 backend-drf/model_cache/
 backend-drf/cache/
-
-# Logs
-*.log
-logs/
-
-# Temporary files
-*.tmp
-*.temp

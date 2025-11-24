@@ -36,12 +36,3 @@ from django.test import TestCase
 # - Protected route access tests
 
 """
-
-from django.test import TestCase
-
-# Test cases will be added here as the project grows
-# Example test structure:
-# - User registration tests
-# - Authentication tests
-# - JWT token refresh tests
-# - Protected route access tests
