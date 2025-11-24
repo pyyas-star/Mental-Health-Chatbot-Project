@@ -1,0 +1,6 @@
+# Procfile for Heroku/Railway deployment (alternative to Render)
+# If deploying to Heroku or Railway, use this file
+# For Render, use render.yaml instead
+
+web: gunicorn mental_health_main.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+

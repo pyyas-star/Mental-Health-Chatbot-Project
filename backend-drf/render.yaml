@@ -1,0 +1,41 @@
+# Render Blueprint Configuration for Mental Health Chatbot Backend
+# This file defines the infrastructure needed to deploy the Django backend on Render
+# Documentation: https://render.com/docs/blueprint-spec
+
+services:
+  # Django Backend Web Service
+  - type: web
+    name: mental-health-chatbot-backend
+    env: python
+    # Build command: Install dependencies
+    buildCommand: pip install -r requirements.txt
+    # Start command: Run Gunicorn server
+    startCommand: gunicorn mental_health_main.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    # Root directory for the backend
+    rootDir: backend-drf
+    # Environment variables (set these in Render dashboard)
+    envVars:
+      - key: SECRET_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        sync: false  # Will be set to your Render service URL
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mental-health-db
+          property: connectionString
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false  # Set to your frontend URL (Netlify/Vercel)
+      - key: MODEL_CACHE_DIR
+        value: "/tmp/model_cache"
+      - key: RATELIMIT_ENABLE
+        value: "False"  # Disable rate limiting on free tier (no Redis)
+
+  # PostgreSQL Database
+  - type: pspg
+    name: mental-health-db
+    plan: free  # Free tier PostgreSQL
+    databaseName: mental_health_db
+    user: mental_health_user
+
