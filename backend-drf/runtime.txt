@@ -1,4 +1,0 @@
-# Python runtime version for Heroku/Railway
-# Specify Python 3.11 for compatibility
-python-3.11.9
-

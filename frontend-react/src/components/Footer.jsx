@@ -17,20 +17,7 @@ const Footer = () => {
 };
 
 export default Footer;
-                &copy; 2025 - Yasin Ahmed Dema
-            </p>
-        </div>
-    );
-};
-
-export default Footer;
-                &copy; 2025 - Yasin Ahmed Dema
-            </p>
-        </div>
-    );
-};
-
-export default Footer;
+export default Footer
                 &copy; 2025 - Yasin Ahmed Dema
             </p>
         </div>

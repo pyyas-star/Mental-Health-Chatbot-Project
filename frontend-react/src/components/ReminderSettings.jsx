@@ -346,231 +346,101 @@ const ReminderSettings = () => {
 export default ReminderSettings;
 
 
-                        </div>
+            <div className="settings-form">
+                <div className="setting-group">
+                    <label className="setting-label">
+                        <input
+                            type="checkbox"
+                            checked={preferences.reminder_enabled}
+                            onChange={(e) => handleChange('reminder_enabled', e.target.checked)}
+                        />
+                        <span>Enable Daily Reminders</span>
+                    </label>
+                    <p className="setting-description">
+                        Receive reminders to check in with your mood each day
+                    </p>
+                </div>
+
+                {preferences.reminder_enabled && (
+                    <div className="setting-group">
+                        <label className="setting-label">Reminder Time</label>
+                        <input
+                            type="time"
+                            value={preferences.reminder_time}
+                            onChange={(e) => handleChange('reminder_time', e.target.value)}
+                            className="time-input"
+                        />
+                        <p className="setting-description">
+                            Choose when you'd like to receive your daily reminder
+                        </p>
                     </div>
+                )}
+
+                <div className="setting-group">
+                    <label className="setting-label">
+                        <input
+                            type="checkbox"
+                            checked={preferences.notification_enabled}
+                            onChange={(e) => handleChange('notification_enabled', e.target.checked)}
+                            disabled={notificationPermission !== 'granted'}
+                        />
+                        <span>Enable Browser Notifications</span>
+                    </label>
+                    <p className="setting-description">
+                        Receive browser notifications for reminders
+                    </p>
                     
-                    <div className="card-content">
-                        <div className="toggle-group">
-                            <label className="toggle-label">
-                                <span className="toggle-text">Enable Browser Notifications</span>
-                                <div className="toggle-switch">
-                                    <input
-                                        type="checkbox"
-                                        checked={preferences.notification_enabled && notificationPermission === 'granted'}
-                                        onChange={(e) => handleChange('notification_enabled', e.target.checked)}
-                                        disabled={notificationPermission !== 'granted'}
-                                        className="toggle-input"
-                                    />
-                                    <span className="toggle-slider"></span>
-                                </div>
-                            </label>
-                            <p className="help-text">
-                                Receive browser notifications for your reminders, even when you're not on the app.
-                            </p>
-                        </div>
-
-                        <div className="notification-status">
-                            {notificationPermission === 'default' && (
-                                <div className="status-banner status-info">
-                                    <span className="status-icon">ℹ️</span>
-                                    <div className="status-content">
-                                        <strong>Permission Required</strong>
-                                        <p>Click the button below to allow notifications from this site.</p>
-                                        <button
-                                            className="btn-primary"
-                                            onClick={requestNotificationPermission}
-                                        >
-                                            Enable Notifications
-                                        </button>
-                                    </div>
-                                </div>
-                            )}
-                            
-                            {notificationPermission === 'granted' && (
-                                <div className="status-banner status-success">
-                                    <span className="status-icon">✓</span>
-                                    <div className="status-content">
-                                        <strong>Notifications Enabled</strong>
-                                        <p>You'll receive notifications at your reminder time.</p>
-                                        <button
-                                            className="btn-secondary"
-                                            onClick={handleTestNotification}
-                                        >
-                                            Test Notification
-                                        </button>
-                                    </div>
-                                </div>
-                            )}
-                            
-                            {notificationPermission === 'denied' && (
-                                <div className="status-banner status-error">
-                                    <span className="status-icon">⚠️</span>
-                                    <div className="status-content">
-                                        <strong>Notifications Blocked</strong>
-                                        <p>Notifications are disabled in your browser settings. To enable them:</p>
-                                        <ol>
-                                            <li>Click the lock icon in your browser's address bar</li>
-                                            <li>Find "Notifications" and change it to "Allow"</li>
-                                            <li>Refresh this page</li>
-                                        </ol>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            {/* Save Button */}
-            {hasChanges && (
-                <div className="save-bar">
-                    <div className="save-bar-content">
-                        <span className="save-bar-text">You have unsaved changes</span>
-                        <div className="save-bar-actions">
-                            <button
-                                className="btn-secondary"
-                                onClick={() => {
-                                    fetchPreferences();
-                                    setHasChanges(false);
-                                }}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                className="btn-primary"
-                                onClick={() => handleSave()}
-                                disabled={isSaving}
-                            >
-                                {isSaving ? (
-                                    <>
-                                        <span className="spinner-small"></span>
-                                        Saving...
-                                    </>
-                                ) : (
-                                    'Save Settings'
-                                )}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-};
-
-export default ReminderSettings;
-
-
-                        </div>
-                    </div>
+                    {notificationPermission === 'default' && (
+                        <button
+                            className="permission-btn"
+                            onClick={requestNotificationPermission}
+                        >
+                            Request Notification Permission
+                        </button>
+                    )}
                     
-                    <div className="card-content">
-                        <div className="toggle-group">
-                            <label className="toggle-label">
-                                <span className="toggle-text">Enable Browser Notifications</span>
-                                <div className="toggle-switch">
-                                    <input
-                                        type="checkbox"
-                                        checked={preferences.notification_enabled && notificationPermission === 'granted'}
-                                        onChange={(e) => handleChange('notification_enabled', e.target.checked)}
-                                        disabled={notificationPermission !== 'granted'}
-                                        className="toggle-input"
-                                    />
-                                    <span className="toggle-slider"></span>
-                                </div>
-                            </label>
-                            <p className="help-text">
-                                Receive browser notifications for your reminders, even when you're not on the app.
-                            </p>
-                        </div>
-
-                        <div className="notification-status">
-                            {notificationPermission === 'default' && (
-                                <div className="status-banner status-info">
-                                    <span className="status-icon">ℹ️</span>
-                                    <div className="status-content">
-                                        <strong>Permission Required</strong>
-                                        <p>Click the button below to allow notifications from this site.</p>
-                                        <button
-                                            className="btn-primary"
-                                            onClick={requestNotificationPermission}
-                                        >
-                                            Enable Notifications
-                                        </button>
-                                    </div>
-                                </div>
-                            )}
-                            
-                            {notificationPermission === 'granted' && (
-                                <div className="status-banner status-success">
-                                    <span className="status-icon">✓</span>
-                                    <div className="status-content">
-                                        <strong>Notifications Enabled</strong>
-                                        <p>You'll receive notifications at your reminder time.</p>
-                                        <button
-                                            className="btn-secondary"
-                                            onClick={handleTestNotification}
-                                        >
-                                            Test Notification
-                                        </button>
-                                    </div>
-                                </div>
-                            )}
-                            
-                            {notificationPermission === 'denied' && (
-                                <div className="status-banner status-error">
-                                    <span className="status-icon">⚠️</span>
-                                    <div className="status-content">
-                                        <strong>Notifications Blocked</strong>
-                                        <p>Notifications are disabled in your browser settings. To enable them:</p>
-                                        <ol>
-                                            <li>Click the lock icon in your browser's address bar</li>
-                                            <li>Find "Notifications" and change it to "Allow"</li>
-                                            <li>Refresh this page</li>
-                                        </ol>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
+                    {notificationPermission === 'granted' && (
+                        <button
+                            className="test-notification-btn"
+                            onClick={handleTestNotification}
+                        >
+                            Test Notification
+                        </button>
+                    )}
+                    
+                    {notificationPermission === 'denied' && (
+                        <p className="permission-denied">
+                            Notifications are blocked. Please enable them in your browser settings.
+                        </p>
+                    )}
                 </div>
 
+                <div className="setting-group">
+                    <label className="setting-label">Theme Preference</label>
+                    <select
+                        value={preferences.preferred_theme}
+                        onChange={(e) => handleChange('preferred_theme', e.target.value)}
+                        className="theme-select"
+                    >
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="auto">Auto (System)</option>
+                    </select>
+                    <p className="setting-description">
+                        Choose your preferred color theme
+                    </p>
+                </div>
+
+                <div className="form-actions">
+                    <button
+                        className="save-btn"
+                        onClick={() => handleSave()}
+                        disabled={isSaving}
+                    >
+                        {isSaving ? 'Saving...' : 'Save Settings'}
+                    </button>
+                </div>
             </div>
-
-            {/* Save Button */}
-            {hasChanges && (
-                <div className="save-bar">
-                    <div className="save-bar-content">
-                        <span className="save-bar-text">You have unsaved changes</span>
-                        <div className="save-bar-actions">
-                            <button
-                                className="btn-secondary"
-                                onClick={() => {
-                                    fetchPreferences();
-                                    setHasChanges(false);
-                                }}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                className="btn-primary"
-                                onClick={() => handleSave()}
-                                disabled={isSaving}
-                            >
-                                {isSaving ? (
-                                    <>
-                                        <span className="spinner-small"></span>
-                                        Saving...
-                                    </>
-                                ) : (
-                                    'Save Settings'
-                                )}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 };

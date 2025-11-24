@@ -16,14 +16,14 @@ const PublicRoute = ({ children }) => {
 };
 
 export default PublicRoute;
-    return !isLoggedIn ? children : <Navigate to='/dashboard' />;
-};
+    return !isLoggedIn ? (
+        children
+    ) : (
+        <Navigate to='/dashboard' />
+    )
+}
 
-export default PublicRoute;
-    return !isLoggedIn ? children : <Navigate to='/dashboard' />;
-};
-
-export default PublicRoute;
+export default PublicRoute
     return !isLoggedIn ? children : <Navigate to='/dashboard' />;
 };
 
