@@ -1,0 +1,301 @@
+/* Daily Check-in Styles */
+
+.checkin-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.checkin-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.checkin-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 8px 0;
+}
+
+.checkin-header p {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.already-checked-in {
+    margin-bottom: 24px;
+}
+
+.check-in-badge {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.emotion-emoji-large {
+    font-size: 48px;
+}
+
+.check-in-badge strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.check-in-badge p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+.checkin-form {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+}
+
+.emotion-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.emotion-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 16px;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.emotion-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.emotion-btn.selected {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.emotion-emoji {
+    font-size: 32px;
+}
+
+.emotion-label {
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.note-section {
+    margin-bottom: 24px;
+}
+
+.note-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+    font-size: 14px;
+}
+
+.checkin-note-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+
+.checkin-note-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.char-count {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.submit-checkin-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submit-checkin-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.submit-checkin-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.error-message {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    border-left: 4px solid #ef4444;
+}
+
+.success-message {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    border-left: 4px solid #10b981;
+    text-align: center;
+}
+
+.calendar-section {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 16px 0;
+}
+
+.mood-calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    position: relative;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.calendar-day:hover {
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.calendar-day.today {
+    border-width: 3px;
+    font-weight: 700;
+}
+
+.calendar-day.has-mood {
+    border-width: 2px;
+}
+
+.day-number {
+    font-size: 12px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.day-emotion {
+    font-size: 16px;
+    margin-top: 2px;
+}
+
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    color: #6b7280;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #e5e7eb;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-state p {
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .checkin-container {
+        padding: 16px;
+    }
+
+    .emotion-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .checkin-form {
+        padding: 24px;
+    }
+
+    .mood-calendar {
+        gap: 4px;
+    }
+
+    .day-number {
+        font-size: 10px;
+    }
+
+    .day-emotion {
+        font-size: 14px;
+    }
+}
+

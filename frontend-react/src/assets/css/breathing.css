@@ -1,0 +1,265 @@
+/* Breathing Exercise Styles */
+
+.breathing-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.breathing-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.breathing-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 8px 0;
+}
+
+.breathing-header p {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.pattern-selector {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+}
+
+.pattern-selector label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #374151;
+    font-size: 14px;
+}
+
+.pattern-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.pattern-btn {
+    padding: 10px 20px;
+    border: 2px solid #e5e7eb;
+    background: white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #374151;
+}
+
+.pattern-btn:hover:not(:disabled) {
+    border-color: #667eea;
+    background: #f3f4f6;
+}
+
+.pattern-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.pattern-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.breathing-exercise {
+    background: white;
+    padding: 48px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.breathing-circle-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin-bottom: 32px;
+}
+
+.breathing-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.breathing-circle.inhale {
+    animation: expand 4s ease-in-out;
+}
+
+.breathing-circle.hold {
+    animation: hold 7s ease-in-out;
+}
+
+.breathing-circle.exhale {
+    animation: contract 8s ease-in-out;
+}
+
+@keyframes expand {
+    0% {
+        transform: scale(0.6);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes hold {
+    0%, 100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes contract {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.6);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.circle-content {
+    text-align: center;
+    color: white;
+}
+
+.phase-text {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.time-display {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.breathing-controls {
+    margin-bottom: 24px;
+}
+
+.start-btn,
+.stop-btn {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.start-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.stop-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.stop-btn:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+.session-info {
+    margin-bottom: 32px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.breathing-instructions {
+    text-align: left;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 32px;
+}
+
+.breathing-instructions h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 12px 0;
+}
+
+.breathing-instructions ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #6b7280;
+    line-height: 1.8;
+}
+
+.breathing-instructions li {
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .breathing-container {
+        padding: 16px;
+    }
+
+    .breathing-circle-wrapper {
+        height: 250px;
+    }
+
+    .breathing-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .time-display {
+        font-size: 36px;
+    }
+
+    .pattern-buttons {
+        flex-direction: column;
+    }
+
+    .pattern-btn {
+        width: 100%;
+    }
+}
+

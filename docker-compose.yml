@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # Django Backend
+  backend:
+    build: ./backend-drf
+    container_name: mental-health-backend
+    volumes:
+      - ./backend-drf:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+      - model_cache:/app/model_cache
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend-drf/.env
+    depends_on:
+      - db
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             gunicorn --bind 0.0.0.0:8000 --workers 3 --timeout 120 mental_health_main.wsgi:application"
+
+  # React Frontend
+  frontend:
+    build: ./frontend-react
+    container_name: mental-health-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  # PostgreSQL Database (optional, can use SQLite for development)
+  db:
+    image: postgres:15-alpine
+    container_name: mental-health-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: mental_health_db
+      POSTGRES_USER: mental_health_user
+      POSTGRES_PASSWORD: change_this_password
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+  model_cache:
+
+networks:
+  default:
+    name: mental-health-network
+
+
+
